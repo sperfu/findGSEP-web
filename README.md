@@ -7,7 +7,7 @@ web server of findGSEP
 ## Prerequisites
 
 1. Install Miniconda or Anaconda
-2. Install R and R packages
+2. Install R (Recommended version 4.2.0) and R packages
 3. Install necessary Python packages
 
 ## Step 1: Install Miniconda
@@ -41,16 +41,16 @@ conda activate python38
 Install R and the required R packages within the virtual environment:
 
 ```bash
-# Install R
-conda install -c r r-base
+# Install R version 4.2.0
+conda install -c conda-forge r-base=4.2.0
 
 # Install required R packages
 conda install -c r r-scales r-pracma r-fgarch r-png r-dplyr r-ggplot2 r-rcolorbrewer
 ```
 
-## Step 4: Configure R Environment Variables
+## Step 4: Configure R Environment Variables (Optional)
 
-Set the virtual environment and R package paths:
+Set the virtual environment and R package paths in the `prepare_findGSE_server_0521.R` file(Right now it is set as default):
 
 ```r
 # Set the path to the virtual environment
@@ -71,7 +71,7 @@ invisible(sapply(packages, function(p) {
 }))
 ```
 
-## Step 5: Set Up the Shiny Project
+## Step 5: Set Up the Shiny Project (Optional)
 
 In your Shiny project file, ensure that you load all the necessary packages and set the correct environment variables:
 
@@ -117,7 +117,7 @@ Navigate to your Shiny project folder in the terminal and run the Shiny applicat
 
 ```bash
 # Navigate to the Shiny project folder
-cd ~/deploy_apps/findGSE/github_web
+cd your_proj_folder
 
 # Run the Shiny application
 Rscript -e "shiny::runApp()"
